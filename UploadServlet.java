@@ -51,13 +51,7 @@ public class UploadServlet extends HttpServlet{
             String fname=name.substring(name.lastIndexOf("\\")+1, name.length()-1); 
             String filename=root+"\\"+fname;
             part.write(filename);
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/interview", "root", "123456");
-            Statement stmt=conn.createStatement();
-            String mysql="update process set id=id+1";
-            stmt.executeUpdate(mysql);
-            
+        
 
             request.getRequestDispatcher("/interview.jsp?fname="+fname+"").forward(request, response);
 		 	

@@ -1,30 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>comment</title>
 </head>
 <body>
+
+<%
+String id=request.getParameter("id");
+String uname=request.getParameter("uname");
+%>
+
 <center>
-		<br>
-		<br>
-		<h1 style="color:red">comment</h1>
-
-
-		 
-		
-		  <c:forEach items="${mylist}" var="my" >
-			
-			<br>${my}<br>
-		
-		  </c:forEach>
-
+<h1 style="color:red">Comment</h1>
+<form action="addcomment.jsp" method="post">
+<textarea name="comment" cols="30" rows="5" align="center"></textarea>
+<input type="hidden" name="uname" value=<%=uname %>>
+<input type="hidden" name="id" value=<%=id %>>
+<br>
+<input type="submit" value="submit">
+<input type="reset" value="reset">
+</form>
 </center>
 
-<a href="Home.jsp">back</a>
+
 
 </body>
 </html>

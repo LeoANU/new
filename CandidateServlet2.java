@@ -72,28 +72,25 @@ public class CandidateServlet2 extends HttpServlet{
 
         List<String> list=new ArrayList<String>();
         String uname=request.getParameter("uname");
-
-	
-
-
 		try {
-			
-			
-
-			 String sql="SELECT distinct interviewer,candidate,email,time,resume from process";
+			 String sql="SELECT interviewer,candidate,email,time,id,resume,comment from process where interviewer like'%*"+uname+"%'";
 			 ResultSet rs=st.executeQuery(sql);
 			 while(rs.next()){
+				 String interviewer=rs.getString(1);
 				 String candidate=rs.getString(2);
 				 String email=rs.getString(3);
 				 String time=rs.getString(4);
-				 String resume=rs.getString(5);
-				 String interviewer=rs.getString(1);
+				 String id=rs.getString(5);
+				 String resume=rs.getString(6);
+				 String comment=rs.getString(7);
 				 list.add(candidate);
 				 list.add(email);
 				 list.add(time);
+				 list.add(interviewer);	
 				 list.add(resume);
-				 list.add(interviewer);
-				 
+				 list.add(comment);
+				 list.add(id);
+				 			 
 			 }
 
 		} catch (Exception e) {

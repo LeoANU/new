@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,23 +24,30 @@ out.print(uname);
 		    <th>Candidate</th>
 		    <th>Email</th>
 		    <th>Time</th>
-		    <th>Resume</th>
 		    <th>Interviewer</th>
+		    <th>Resume</th>
+		    <th>comment</th>
 		  </tr>
 		
 		  <c:forEach items="${plist}" var="pl" >
-			<%if(i%5==1){ %>
+			<%if(i%7==1){ %>
 			<tr>
 			<%} %>
-			<%if(i%5!=0){ %>
-			<td>${pl}</td>
-			<%}
-			else{ %>
+			<%if(i%7==5){ %>
+			<td><a href="upload/${pl}">${pl}</a></td>
+			<%}else if(i%7==0){ %>
+			<td><a href="comment.jsp?uname=<%=uname %>&id=${pl}">add comment</a></td>
 			</tr>
+			
+			<%}else{ %>
+			<td>${pl}</td>
 			<%}  
 			i++;%>
 		  </c:forEach>
 		 </table>
 </center>
+
+<a href="login.jsp">log out</a>
+
 </body>
 </html>
