@@ -7,26 +7,33 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background:url(image/2.jpg) ;background-size:1000px 540px; background-position-x:50%">
+<a href="CandidateServlet" style="position:absolute;left:1;top:1; color:#292421" ><center><img src="image/0.jpg" style="opacity:0.6" width=30px><br>Back</center></a>
+
 <center>
 		<br>
 		<br>
-		<h1 style="color:red">interview</h1>
-		<table border="2">
+		<br>
+		<br>
+		<h1 style="color:red;font-size:42px">Interview</h1>
+		<table border="6">
 		<%int i=1; %>
 		  <tr>
-		    <th>Candidate</th>
-		    <th>Time</th>
+		    <th>Interviewer</th>
+		    <th>Date</th>
+		    <th>Start time</th>
+		    <th>End time</th>
+		    <th>Location</th>
 		    <th>Comment</th>
 		  </tr>
 		
 		  <c:forEach items="${mylist}" var="my" >
-			<%if(i%3==1){ %>
+			<%if(i%6==1){ %>
 			<tr>
 			<%} %>
 			<td>${my}</td>
 			<%
-			if(i%3==0){ %>
+			if(i%6==0){ %>
 			</tr>
 			<%} 
 			i++;%>
@@ -34,7 +41,7 @@
 		 </table>
 </center>
 
-<a href="CandidateServlet">back</a>
+
 
 </body>
 </html>

@@ -6,18 +6,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>upload</title>
 </head>
-<body>
-<h1>new candidate</h1>
+<body  style="background:url(image/6.jpg) ;background-size:1000px 540px; background-position-x:50%">
+<a href="CandidateServlet" style="position:absolute;left:1;top:1; color:#FFFFFF" ><center><img src="image/0.jpg" style="opacity:0.8" width=30px><br>Back</center></a>
+<br>
+<br>
+<br>
+
+<center>
+<h1 style="color:red;font-size:42px">New candidate</h1>
 
 <script type="text/javascript">	
 		alert("please make sure that the file name is unique")
 </script>
 <form method="post" action="UploadServlet" enctype="multipart/form-data">
 <table>
-<tr>
-<td></td>
-<td><h1>Basic information</h1></td>
-</tr>
+
+<h1>Basic information</h1>
 <tr>
 <td>candidate name</td>
 <td><input type="text" name="cname"/></td>
@@ -37,6 +41,7 @@
 </table>
 
 </form>
- <a href="Home2.jsp">back</a>
+</center>
+
 </body>
 </html>

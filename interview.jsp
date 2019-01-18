@@ -8,11 +8,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>add interview</title>
 </head>
-<body>
+<body  style="background:url(image/6.jpg) ;background-size:1000px 540px; background-position-x:50%">
+
 
 <%
 List<String> list=new ArrayList<String>();
-String interviewer=request.getParameter("interviewer");
+String interviewer=request.getParameter("user");
 if(interviewer==null){interviewer="";}
 String cname=request.getParameter("cname");
 String email=request.getParameter("email");
@@ -33,9 +34,11 @@ while(rs.next()){
 
 
 %> 
-
+<br>
+<br>
+<br>
 <center>
-		<h1 style="color:red">Add interview</h1>
+		<h1 >Add interview</h1>
 		
 		<form action="addinterview.jsp" method="post">
 		<input type="hidden" name="cname" value=<%=cname %>>
@@ -52,14 +55,26 @@ while(rs.next()){
 		<td></td>
 		<td>
 		<c:forEach items="<%=list%>" var="st" >
-		<a href="interview.jsp?interviewer=<%=interviewer%>*${st}&cname=<%=cname%>&email=<%=email%>&fname=<%=fname%>">${st}</a>
+		<a href="interview.jsp?user=<%=interviewer%>*${st}&cname=<%=cname%>&email=<%=email%>&fname=<%=fname%>">${st}</a>
 		</c:forEach>
 		</td>
 		</tr>
 		<tr>
-		<td>Time:</td>
-		<td><input type="text" name="time" style="width:230px" value="in the form yyyy-MM-dd HH:mm" maxlength="30" onfocus="if(this.value == 'in the form yyyy-MM-dd HH:mm') this.value =''"></td>
-		</tr>		
+		<td>Date:</td>
+		<td><input type="text" name="date" style="width:230px" value="in the form yyyyMMdd" maxlength="8" onfocus="if(this.value == 'in the form yyyyMMdd') this.value =''"></td>
+		</tr>
+		<tr>
+		<td>Start time:</td>
+		<td><input type="text" name="start" style="width:230px" value="in the form HHmm" maxlength="4" onfocus="if(this.value == 'in the form HHmm') this.value =''"></td>
+		</tr>
+		<tr>	
+		<td>End time:</td>
+		<td><input type="text" name="end" style="width:230px" value="in the form HHmm" maxlength="4" onfocus="if(this.value == 'in the form HHmm') this.value =''"></td>
+		</tr>
+		<tr>	
+		<td>Location:</td>
+		<td><input type="text" name="location" style="width:230px"></td>
+		</tr>			
 		</table>
 			<input type="submit" value="submit">
 		</form>
